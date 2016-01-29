@@ -50,11 +50,11 @@ public class JCupidConnection {
 		try{
 			String sql;
 			if(q.equalsIgnoreCase("_new")){
-				sql = "select username from jcupid.bitches where remark='_new'";
+				sql = "select username from jcupid.users where remark='_new'";
 			}else if(q.equalsIgnoreCase("sent")){
-				sql = "select username from jcupid.bitches where remark='sent'";
+				sql = "select username from jcupid.users where remark='sent'";
 			}else{
-				sql = "select username from jcupid.bitches";
+				sql = "select username from jcupid.users";
 			}
 			preparedStatement = connection.prepareStatement(sql);
 			resultSet = preparedStatement.executeQuery();
@@ -86,7 +86,7 @@ public class JCupidConnection {
 	
 	public boolean isSent(String username){
 		try{
-			preparedStatement = connection.prepareStatement("select remark from jcupid.bitches where username=?");
+			preparedStatement = connection.prepareStatement("select remark from jcupid.users where username=?");
 			preparedStatement.setString(1, username);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -110,7 +110,7 @@ public class JCupidConnection {
 	
 	public void updateBitch(String username, String update){
 		try {
-			preparedStatement = connection.prepareStatement("update jcupid.bitches set remark=? where username=?");
+			preparedStatement = connection.prepareStatement("update jcupid.users set remark=? where username=?");
 			preparedStatement.setString(1, update);
 			preparedStatement.setString(2, username);
 			preparedStatement.executeUpdate();
@@ -127,7 +127,7 @@ public class JCupidConnection {
 				System.out.println("User already exists, skipping saving...");
 				return;
 			}
-			preparedStatement = connection.prepareStatement("insert into jcupid.bitches (username, remark) values(?,?)");
+			preparedStatement = connection.prepareStatement("insert into jcupid.users (username, remark) values(?,?)");
 			preparedStatement.setString(1, username);
 			preparedStatement.setString(2, remark);
 			preparedStatement.executeUpdate();
@@ -140,7 +140,7 @@ public class JCupidConnection {
 	
 	private boolean isExist(String username){
 		try{
-			preparedStatement = connection.prepareStatement("select username from jcupid.bitches where username=?");
+			preparedStatement = connection.prepareStatement("select username from jcupid.users where username=?");
 			preparedStatement.setString(1, username);
 			resultSet = preparedStatement.executeQuery();
 			

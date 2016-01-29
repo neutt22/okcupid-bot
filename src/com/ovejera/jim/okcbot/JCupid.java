@@ -340,7 +340,7 @@ public class JCupid {
 								
 								for(String keyword : blacklists){
 									if(gender.contains(keyword)){
-										System.out.println("Gay alert: " + keyword);
+										System.out.println("Blacklist detected: " + keyword);
 										add = false;
 										break;
 									}
