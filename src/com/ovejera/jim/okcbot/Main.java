@@ -8,7 +8,7 @@ import java.util.logging.Level;
 
 public class Main {
 	
-	public static String VERSION = "1.5.1";
+	public static String VERSION = "1.5.1-brandon-8888";
 	
 	private static Scanner scanner = new Scanner(System.in);
 	

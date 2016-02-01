@@ -10,7 +10,7 @@ import java.util.List;
 
 public class JCupidConnection {
 
-	private String url = "jdbc:mysql://localhost/jcupid?user=jcupidadmin&password=jcupidpassword";
+	private String url = "jdbc:mysql://localhost:8888/jcupid?user=jcupidadmin&password=jcupidpassword";
 	
 	private Connection connection;
 	private PreparedStatement preparedStatement;
